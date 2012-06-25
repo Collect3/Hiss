@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'HissApp' target in the 'HissApp' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#import "Macros.h"
+#endif
