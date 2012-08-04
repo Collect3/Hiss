@@ -12,16 +12,18 @@
 @synthesize engineRunning;
 @synthesize preferencesWindowShowing;
 @synthesize windowPosition;
+@synthesize hideInMenuBar;
 - (void)setupDefaults {
     engineRunning = YES;
     preferencesWindowShowing = YES;
+    hideInMenuBar = NO;
 }
 
 
 - (NSArray*)savedProperties {
     static NSArray *savedProperties = nil;
     if (savedProperties == nil) {
-        savedProperties = [@[@"engineRunning", @"preferencesWindowShowing", @"windowPosition"] retain];
+        savedProperties = [@[@"engineRunning", @"preferencesWindowShowing", @"windowPosition", @"hideInMenuBar"] retain];
     }
     return savedProperties;
 }

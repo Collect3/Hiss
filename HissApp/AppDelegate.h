@@ -10,8 +10,9 @@
 #import "PreferencesWindowController.h"
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     PreferencesWindowController *preferencesWindowController;
+    NSStatusItem *statusBarItem;
 }
-
+@property (retain) NSStatusItem *statusBarItem;
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSMenu   *statusBarMenu;
 - (IBAction)actionShowPreferences:(id)sender;

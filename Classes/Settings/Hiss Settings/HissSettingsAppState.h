@@ -12,8 +12,10 @@
     BOOL engineRunning;
     BOOL preferencesWindowShowing;
     NSValue *windowPosition;
+    BOOL hideInMenuBar;
 }
 @property (nonatomic, assign) BOOL engineRunning;
 @property (nonatomic, assign) BOOL preferencesWindowShowing;
 @property (nonatomic, assign) NSValue *windowPosition;
+@property (nonatomic, assign) BOOL hideInMenuBar;
 @end

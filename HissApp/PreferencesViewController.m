@@ -8,9 +8,13 @@
 
 #import "PreferencesViewController.h"
 #import "HissEngine.h"
+#import "HissSettings.h"
 #import "StartAtLogin.h"
 #include <QuartzCore/QuartzCore.h>
 #import "NSButton+Style.h"
+
+NSString *kPreferenceViewControllerUpdatedMenuBarOption = @"kPreferenceViewControllerUpdatedMenuBarOption";
+
 @interface PreferencesViewController()
 - (void)updateGeneralUI;
 - (void)updateAboutUI;
@@ -57,6 +61,9 @@
     StartAtLogin *start = [[StartAtLogin alloc] init];
     [startAtLoginCheckbox setState:  [start doesStartAtLogin]];
     [start release];
+    
+    BOOL hideInMenuBar = [HissSettings sharedInstance].appState.hideInMenuBar;
+    [showInMenuBarCheckbox setState: !hideInMenuBar];
     
     [startButton setFont: [NSFont fontWithName:@"MyriadPro-Bold" size:18 ]];
     [startButton.cell setImageDimsWhenDisabled: NO];
@@ -110,6 +117,14 @@
     [start release];    
     
     [self updateGeneralUI];
+}
+
+- (IBAction)actionToggleShowInMenuBar:(NSButton*)sender {
+    [HissSettings sharedInstance].appState.hideInMenuBar = !sender.state;
+    [[HissSettings sharedInstance] save];
+    
+    [self updateGeneralUI];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPreferenceViewControllerUpdatedMenuBarOption object:nil];
 }
 
 - (IBAction)actionWeb:(id)sender {

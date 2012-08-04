@@ -11,6 +11,8 @@
 #import "HissSettings.h"
 #import "HissEngine.h"
 #import "GrowlPropertyListFilePathway.h"
+#import "PreferencesViewController.h"
+#import "AppConnect.h"
 
 /*!	@defined GROWL_REG_DICT_EXTENSION
  *	@abstract The filename extension for registration dictionaries.
@@ -27,6 +29,7 @@
 
 @synthesize window = _window;
 @synthesize statusBarMenu;
+@synthesize statusBarItem;
 - (void)dealloc
 {
     [super dealloc];
@@ -49,25 +52,44 @@
     }    
 }
 
+- (void) hideStatusBar {
+    if (self.statusBarItem) {
+        [[NSStatusBar systemStatusBar] removeStatusItem: self.statusBarItem];
+        self.statusBarItem = nil;
+    }
+}
+
 - (void) setupStatusBar {
     NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
     
+    [self hideStatusBar];
+
     NSStatusItem *item = [statusBar statusItemWithLength: NSSquareStatusItemLength];
     [item setImage: [NSImage imageNamed:@"status-icon.png"]];
     [item setHighlightMode:YES];
-//    [item setTitle:@"123"];
     [item setMenu: self.statusBarMenu];
+    
+    self.statusBarItem = item;
+}
+
+- (void)preferencesUpdatedMenuBarOption:(NSNotification*)note {
+    NSLog(@"preferencesUpdatedMenuBarOption");
+    if ([HissSettings sharedInstance].appState.hideInMenuBar) {
+        [self hideStatusBar];
+    } else {
+        [self setupStatusBar];
+    }
 }
 
 - (void) setupPreferencesWindow {
     preferencesWindowController = [[PreferencesWindowController alloc] initWithWindowNibName:@"PreferencesWindowController"];
-    [preferencesWindowController loadFromSettings];
-    [preferencesWindowController bringToFront];
+    [preferencesWindowController loadFromSettings];    
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    //[[AppConnect sharedInstance] launchedWithAppCode:@"f6701a32118f3d8ebd5ca6355900fac7"];
-    //[[AppConnect sharedInstance] registerEvent:@"start"];
+    [[AppConnect sharedInstance] launchedWithAppCode:@"f6701a32118f3d8ebd5ca6355900fac7"];
+    [[AppConnect sharedInstance] registerEvent:@"start"];
+    
     [[HissSettings sharedInstance] load];
     [self loadCustomFonts];
     
@@ -77,8 +99,17 @@
         [[NSApplication sharedApplication] terminate: nil];
     }
 
-    [self setupStatusBar];
+    if (![HissSettings sharedInstance].appState.hideInMenuBar) {
+        [self setupStatusBar];
+    }
+    
     [self setupPreferencesWindow];
+    
+    if ([HissSettings sharedInstance].appState.preferencesWindowShowing) {
+        [preferencesWindowController bringToFront];
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(preferencesUpdatedMenuBarOption:) name:kPreferenceViewControllerUpdatedMenuBarOption object:nil];
     
 }
 
@@ -97,6 +128,10 @@
     
 }
 
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag {
+    [self actionShowPreferences: nil];
+    return YES;
+}
 
 - (BOOL) application:(NSApplication *)theApplication openFile:(NSString *)filename {
 	BOOL retVal = NO;

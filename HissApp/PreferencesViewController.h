@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+extern NSString *kPreferenceViewControllerUpdatedMenuBarOption;
 
 @interface PreferencesViewController : NSViewController {
     
@@ -14,6 +15,7 @@
     IBOutlet NSTextField *startStatusText;
     IBOutlet NSButton *startButton;
     IBOutlet NSButton *startAtLoginCheckbox;
+    IBOutlet NSButton *showInMenuBarCheckbox;
     IBOutlet NSImageView *onImage;
     
     IBOutlet NSTextField *descriptionText;
@@ -28,4 +30,6 @@
 - (IBAction)actionWeb:(id)sender;
 - (IBAction)actionEmail:(id)sender;
 - (IBAction)actionTwitter:(id)sender;
+- (IBAction)actionToggleStartAtLogin:(NSButton*)sender;
+- (IBAction)actionToggleShowInMenuBar:(NSButton*)sender;
 @end
