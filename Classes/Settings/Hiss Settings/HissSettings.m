@@ -8,8 +8,6 @@
 
 #import "HissSettings.h"
 
-#import "HissSettingsRegisteredApps.h"
-
 @implementation HissSettings
 
 + (HissSettings *)sharedInstance {
@@ -27,7 +25,7 @@
     return [self.classes objectForKey: c];
 }
 
-- (NSSet *)registeredApps {
+- (HissSettingsRegisteredApps *)registeredApps {
     static NSString *c = @"HissSettingsRegisteredApps";
     return [self.classes objectForKey:c];
 }

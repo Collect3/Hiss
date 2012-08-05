@@ -13,8 +13,10 @@
     BOOL isRunning;
     BOOL growlIsRunning;
 }
+
 @property (nonatomic, assign) BOOL isRunning;
 @property (nonatomic, readonly) BOOL growlIsRunning;
+
 + (HissEngine *)sharedInstance;
 - (void)start;
 - (void)stop;

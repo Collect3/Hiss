@@ -11,9 +11,15 @@
 #import "RegisteredApp.h"
 #import "HissSettingsRegisteredApps.h"
 
-@implementation HissEngine {
-    NSMutableSet *registeredApps;
-}
+@interface HissEngine()
+
+@property (nonatomic, strong) NSSet *registeredApps;
+
+@end
+
+#pragma mark -
+
+@implementation HissEngine
 
 @synthesize isRunning;
 
