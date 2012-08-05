@@ -12,7 +12,7 @@
 #import "HissEngine.h"
 #import "GrowlPropertyListFilePathway.h"
 #import "PreferencesViewController.h"
-#import "AppConnect.h"
+// #import "AppConnect.h"
 
 /*!	@defined GROWL_REG_DICT_EXTENSION
  *	@abstract The filename extension for registration dictionaries.
@@ -87,8 +87,8 @@
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [[AppConnect sharedInstance] launchedWithAppCode:@"f6701a32118f3d8ebd5ca6355900fac7"];
-    [[AppConnect sharedInstance] registerEvent:@"start"];
+//    [[AppConnect sharedInstance] launchedWithAppCode:@"f6701a32118f3d8ebd5ca6355900fac7"];
+//    [[AppConnect sharedInstance] registerEvent:@"start"];
     
     [[HissSettings sharedInstance] load];
     [self loadCustomFonts];

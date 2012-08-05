@@ -45,28 +45,6 @@
 		B5EABA0F14F1EBD5007D180F /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5EABA0E14F1EBD5007D180F /* Sparkle.framework */; };
 		B5EABA1114F1EC09007D180F /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5EABA0E14F1EBD5007D180F /* Sparkle.framework */; };
 		B5EABA1314F1F04B007D180F /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B5EABA1214F1F04B007D180F /* dsa_pub.pem */; };
-		B5F143AC15C0B1FF00024EFF /* ACAction.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1436C15C0B1FF00024EFF /* ACAction.m */; };
-		B5F143AD15C0B1FF00024EFF /* ACAlertMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1436E15C0B1FF00024EFF /* ACAlertMessage.m */; };
-		B5F143AE15C0B1FF00024EFF /* ACDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1437015C0B1FF00024EFF /* ACDisplay.m */; };
-		B5F143AF15C0B1FF00024EFF /* ACHTMLMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1437215C0B1FF00024EFF /* ACHTMLMessage.m */; };
-		B5F143B115C0B1FF00024EFF /* ACLink.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1437615C0B1FF00024EFF /* ACLink.m */; };
-		B5F143B315C0B1FF00024EFF /* ACMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1437A15C0B1FF00024EFF /* ACMessage.m */; };
-		B5F143B415C0B1FF00024EFF /* ACReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1437C15C0B1FF00024EFF /* ACReachability.m */; };
-		B5F143B515C0B1FF00024EFF /* ACRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1437E15C0B1FF00024EFF /* ACRequest.m */; };
-		B5F143B615C0B1FF00024EFF /* ACRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1438015C0B1FF00024EFF /* ACRequestQueue.m */; };
-		B5F143B715C0B1FF00024EFF /* ACResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1438215C0B1FF00024EFF /* ACResponse.m */; };
-		B5F143B815C0B1FF00024EFF /* ACResponseHandlerEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1438415C0B1FF00024EFF /* ACResponseHandlerEvent.m */; };
-		B5F143B915C0B1FF00024EFF /* ACResponseHandlerLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1438615C0B1FF00024EFF /* ACResponseHandlerLaunch.m */; };
-		B5F143BA15C0B1FF00024EFF /* ACResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1438815C0B1FF00024EFF /* ACResponseParser.m */; };
-		B5F143BB15C0B1FF00024EFF /* ACStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1438A15C0B1FF00024EFF /* ACStatus.m */; };
-		B5F143BC15C0B1FF00024EFF /* ACStore.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1438C15C0B1FF00024EFF /* ACStore.m */; };
-		B5F143BD15C0B1FF00024EFF /* ACStoreCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1438E15C0B1FF00024EFF /* ACStoreCategory.m */; };
-		B5F143BE15C0B1FF00024EFF /* ACStoreItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1439015C0B1FF00024EFF /* ACStoreItem.m */; };
-		B5F143BF15C0B1FF00024EFF /* ACStoreProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1439215C0B1FF00024EFF /* ACStoreProduct.m */; };
-		B5F143C015C0B1FF00024EFF /* ACStoreSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1439415C0B1FF00024EFF /* ACStoreSettings.m */; };
-		B5F143C115C0B1FF00024EFF /* AppConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1439615C0B1FF00024EFF /* AppConnect.m */; };
-		B5F143C215C0B1FF00024EFF /* AppConnectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F1439815C0B1FF00024EFF /* AppConnectSettings.m */; };
-		B5F143CE15C0B24D00024EFF /* DeviceType.m in Sources */ = {isa = PBXBuildFile; fileRef = B5F143CD15C0B24C00024EFF /* DeviceType.m */; };
 		B5F143CF15C0B27100024EFF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53128CC14F15C2900D85235 /* Security.framework */; };
 		B5F24D8714F11D2C00B175C1 /* general-light-off.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F24D8514F11D2C00B175C1 /* general-light-off.png */; };
 		B5F24D8814F11D2C00B175C1 /* general-light-on.png in Resources */ = {isa = PBXBuildFile; fileRef = B5F24D8614F11D2C00B175C1 /* general-light-on.png */; };
@@ -175,50 +153,6 @@
 		B5E76E8314EFF489009384BD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5EABA0E14F1EBD5007D180F /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		B5EABA1214F1F04B007D180F /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		B5F1436B15C0B1FF00024EFF /* ACAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAction.h; sourceTree = "<group>"; };
-		B5F1436C15C0B1FF00024EFF /* ACAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAction.m; sourceTree = "<group>"; };
-		B5F1436D15C0B1FF00024EFF /* ACAlertMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACAlertMessage.h; sourceTree = "<group>"; };
-		B5F1436E15C0B1FF00024EFF /* ACAlertMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACAlertMessage.m; sourceTree = "<group>"; };
-		B5F1436F15C0B1FF00024EFF /* ACDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACDisplay.h; sourceTree = "<group>"; };
-		B5F1437015C0B1FF00024EFF /* ACDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACDisplay.m; sourceTree = "<group>"; };
-		B5F1437115C0B1FF00024EFF /* ACHTMLMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACHTMLMessage.h; sourceTree = "<group>"; };
-		B5F1437215C0B1FF00024EFF /* ACHTMLMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACHTMLMessage.m; sourceTree = "<group>"; };
-		B5F1437515C0B1FF00024EFF /* ACLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACLink.h; sourceTree = "<group>"; };
-		B5F1437615C0B1FF00024EFF /* ACLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACLink.m; sourceTree = "<group>"; };
-		B5F1437915C0B1FF00024EFF /* ACMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMessage.h; sourceTree = "<group>"; };
-		B5F1437A15C0B1FF00024EFF /* ACMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACMessage.m; sourceTree = "<group>"; };
-		B5F1437B15C0B1FF00024EFF /* ACReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACReachability.h; sourceTree = "<group>"; };
-		B5F1437C15C0B1FF00024EFF /* ACReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACReachability.m; sourceTree = "<group>"; };
-		B5F1437D15C0B1FF00024EFF /* ACRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRequest.h; sourceTree = "<group>"; };
-		B5F1437E15C0B1FF00024EFF /* ACRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRequest.m; sourceTree = "<group>"; };
-		B5F1437F15C0B1FF00024EFF /* ACRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRequestQueue.h; sourceTree = "<group>"; };
-		B5F1438015C0B1FF00024EFF /* ACRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACRequestQueue.m; sourceTree = "<group>"; };
-		B5F1438115C0B1FF00024EFF /* ACResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACResponse.h; sourceTree = "<group>"; };
-		B5F1438215C0B1FF00024EFF /* ACResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACResponse.m; sourceTree = "<group>"; };
-		B5F1438315C0B1FF00024EFF /* ACResponseHandlerEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACResponseHandlerEvent.h; sourceTree = "<group>"; };
-		B5F1438415C0B1FF00024EFF /* ACResponseHandlerEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACResponseHandlerEvent.m; sourceTree = "<group>"; };
-		B5F1438515C0B1FF00024EFF /* ACResponseHandlerLaunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACResponseHandlerLaunch.h; sourceTree = "<group>"; };
-		B5F1438615C0B1FF00024EFF /* ACResponseHandlerLaunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACResponseHandlerLaunch.m; sourceTree = "<group>"; };
-		B5F1438715C0B1FF00024EFF /* ACResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACResponseParser.h; sourceTree = "<group>"; };
-		B5F1438815C0B1FF00024EFF /* ACResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACResponseParser.m; sourceTree = "<group>"; };
-		B5F1438915C0B1FF00024EFF /* ACStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACStatus.h; sourceTree = "<group>"; };
-		B5F1438A15C0B1FF00024EFF /* ACStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACStatus.m; sourceTree = "<group>"; };
-		B5F1438B15C0B1FF00024EFF /* ACStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACStore.h; sourceTree = "<group>"; };
-		B5F1438C15C0B1FF00024EFF /* ACStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACStore.m; sourceTree = "<group>"; };
-		B5F1438D15C0B1FF00024EFF /* ACStoreCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACStoreCategory.h; sourceTree = "<group>"; };
-		B5F1438E15C0B1FF00024EFF /* ACStoreCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACStoreCategory.m; sourceTree = "<group>"; };
-		B5F1438F15C0B1FF00024EFF /* ACStoreItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACStoreItem.h; sourceTree = "<group>"; };
-		B5F1439015C0B1FF00024EFF /* ACStoreItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACStoreItem.m; sourceTree = "<group>"; };
-		B5F1439115C0B1FF00024EFF /* ACStoreProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACStoreProduct.h; sourceTree = "<group>"; };
-		B5F1439215C0B1FF00024EFF /* ACStoreProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACStoreProduct.m; sourceTree = "<group>"; };
-		B5F1439315C0B1FF00024EFF /* ACStoreSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACStoreSettings.h; sourceTree = "<group>"; };
-		B5F1439415C0B1FF00024EFF /* ACStoreSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACStoreSettings.m; sourceTree = "<group>"; };
-		B5F1439515C0B1FF00024EFF /* AppConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConnect.h; sourceTree = "<group>"; };
-		B5F1439615C0B1FF00024EFF /* AppConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConnect.m; sourceTree = "<group>"; };
-		B5F1439715C0B1FF00024EFF /* AppConnectSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConnectSettings.h; sourceTree = "<group>"; };
-		B5F1439815C0B1FF00024EFF /* AppConnectSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConnectSettings.m; sourceTree = "<group>"; };
-		B5F143CC15C0B24C00024EFF /* DeviceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceType.h; path = ../libraries/DeviceType.h; sourceTree = "<group>"; };
-		B5F143CD15C0B24C00024EFF /* DeviceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceType.m; path = ../libraries/DeviceType.m; sourceTree = "<group>"; };
 		B5F24D8514F11D2C00B175C1 /* general-light-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "general-light-off.png"; sourceTree = "<group>"; };
 		B5F24D8614F11D2C00B175C1 /* general-light-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "general-light-on.png"; sourceTree = "<group>"; };
 		B5F24D8A14F11DDE00B175C1 /* general-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "general-button.png"; sourceTree = "<group>"; };
@@ -373,9 +307,6 @@
 				B53128CC14F15C2900D85235 /* Security.framework */,
 				B53128C014F15A3500D85235 /* SystemConfiguration.framework */,
 				B5F24D8C14F1227900B175C1 /* QuartzCore.framework */,
-				B5F1436A15C0B1FF00024EFF /* AppConnect */,
-				B5F143CC15C0B24C00024EFF /* DeviceType.h */,
-				B5F143CD15C0B24C00024EFF /* DeviceType.m */,
 				B578F88C14F0B56D00290825 /* Classes */,
 				B5A8C77414F0999D0094DF01 /* HissApp */,
 				B5E76E7B14EFF489009384BD /* Frameworks */,
@@ -409,56 +340,6 @@
 				B5E76E8314EFF489009384BD /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		B5F1436A15C0B1FF00024EFF /* AppConnect */ = {
-			isa = PBXGroup;
-			children = (
-				B5F1436B15C0B1FF00024EFF /* ACAction.h */,
-				B5F1436C15C0B1FF00024EFF /* ACAction.m */,
-				B5F1436D15C0B1FF00024EFF /* ACAlertMessage.h */,
-				B5F1436E15C0B1FF00024EFF /* ACAlertMessage.m */,
-				B5F1436F15C0B1FF00024EFF /* ACDisplay.h */,
-				B5F1437015C0B1FF00024EFF /* ACDisplay.m */,
-				B5F1437115C0B1FF00024EFF /* ACHTMLMessage.h */,
-				B5F1437215C0B1FF00024EFF /* ACHTMLMessage.m */,
-				B5F1437515C0B1FF00024EFF /* ACLink.h */,
-				B5F1437615C0B1FF00024EFF /* ACLink.m */,
-				B5F1437915C0B1FF00024EFF /* ACMessage.h */,
-				B5F1437A15C0B1FF00024EFF /* ACMessage.m */,
-				B5F1437B15C0B1FF00024EFF /* ACReachability.h */,
-				B5F1437C15C0B1FF00024EFF /* ACReachability.m */,
-				B5F1437D15C0B1FF00024EFF /* ACRequest.h */,
-				B5F1437E15C0B1FF00024EFF /* ACRequest.m */,
-				B5F1437F15C0B1FF00024EFF /* ACRequestQueue.h */,
-				B5F1438015C0B1FF00024EFF /* ACRequestQueue.m */,
-				B5F1438115C0B1FF00024EFF /* ACResponse.h */,
-				B5F1438215C0B1FF00024EFF /* ACResponse.m */,
-				B5F1438315C0B1FF00024EFF /* ACResponseHandlerEvent.h */,
-				B5F1438415C0B1FF00024EFF /* ACResponseHandlerEvent.m */,
-				B5F1438515C0B1FF00024EFF /* ACResponseHandlerLaunch.h */,
-				B5F1438615C0B1FF00024EFF /* ACResponseHandlerLaunch.m */,
-				B5F1438715C0B1FF00024EFF /* ACResponseParser.h */,
-				B5F1438815C0B1FF00024EFF /* ACResponseParser.m */,
-				B5F1438915C0B1FF00024EFF /* ACStatus.h */,
-				B5F1438A15C0B1FF00024EFF /* ACStatus.m */,
-				B5F1438B15C0B1FF00024EFF /* ACStore.h */,
-				B5F1438C15C0B1FF00024EFF /* ACStore.m */,
-				B5F1438D15C0B1FF00024EFF /* ACStoreCategory.h */,
-				B5F1438E15C0B1FF00024EFF /* ACStoreCategory.m */,
-				B5F1438F15C0B1FF00024EFF /* ACStoreItem.h */,
-				B5F1439015C0B1FF00024EFF /* ACStoreItem.m */,
-				B5F1439115C0B1FF00024EFF /* ACStoreProduct.h */,
-				B5F1439215C0B1FF00024EFF /* ACStoreProduct.m */,
-				B5F1439315C0B1FF00024EFF /* ACStoreSettings.h */,
-				B5F1439415C0B1FF00024EFF /* ACStoreSettings.m */,
-				B5F1439515C0B1FF00024EFF /* AppConnect.h */,
-				B5F1439615C0B1FF00024EFF /* AppConnect.m */,
-				B5F1439715C0B1FF00024EFF /* AppConnectSettings.h */,
-				B5F1439815C0B1FF00024EFF /* AppConnectSettings.m */,
-			);
-			name = AppConnect;
-			path = ../libraries/AppConnect;
 			sourceTree = "<group>";
 		};
 		B5F24D8314F11D2C00B175C1 /* Resources */ = {
@@ -579,28 +460,6 @@
 				B5C60A9814F2178600FD014B /* NSMutableStringAdditions.m in Sources */,
 				B5C60A9914F2178600FD014B /* NSStringAdditions.m in Sources */,
 				B5C7212515991F7A006EDC12 /* NSStringCategories.m in Sources */,
-				B5F143AC15C0B1FF00024EFF /* ACAction.m in Sources */,
-				B5F143AD15C0B1FF00024EFF /* ACAlertMessage.m in Sources */,
-				B5F143AE15C0B1FF00024EFF /* ACDisplay.m in Sources */,
-				B5F143AF15C0B1FF00024EFF /* ACHTMLMessage.m in Sources */,
-				B5F143B115C0B1FF00024EFF /* ACLink.m in Sources */,
-				B5F143B315C0B1FF00024EFF /* ACMessage.m in Sources */,
-				B5F143B415C0B1FF00024EFF /* ACReachability.m in Sources */,
-				B5F143B515C0B1FF00024EFF /* ACRequest.m in Sources */,
-				B5F143B615C0B1FF00024EFF /* ACRequestQueue.m in Sources */,
-				B5F143B715C0B1FF00024EFF /* ACResponse.m in Sources */,
-				B5F143B815C0B1FF00024EFF /* ACResponseHandlerEvent.m in Sources */,
-				B5F143B915C0B1FF00024EFF /* ACResponseHandlerLaunch.m in Sources */,
-				B5F143BA15C0B1FF00024EFF /* ACResponseParser.m in Sources */,
-				B5F143BB15C0B1FF00024EFF /* ACStatus.m in Sources */,
-				B5F143BC15C0B1FF00024EFF /* ACStore.m in Sources */,
-				B5F143BD15C0B1FF00024EFF /* ACStoreCategory.m in Sources */,
-				B5F143BE15C0B1FF00024EFF /* ACStoreItem.m in Sources */,
-				B5F143BF15C0B1FF00024EFF /* ACStoreProduct.m in Sources */,
-				B5F143C015C0B1FF00024EFF /* ACStoreSettings.m in Sources */,
-				B5F143C115C0B1FF00024EFF /* AppConnect.m in Sources */,
-				B5F143C215C0B1FF00024EFF /* AppConnectSettings.m in Sources */,
-				B5F143CE15C0B24D00024EFF /* DeviceType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
