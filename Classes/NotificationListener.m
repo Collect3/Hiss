@@ -9,13 +9,18 @@
 #import "NotificationListener.h"
 #import "GrowlApplicationBridgePathway.h"
 #import "GrowlPropertyListFilePathway.h"
+#import "RegisteredApp.h"
+
 @interface NotificationListener() 
 - (void)installPathways;
 @end
 
 @implementation NotificationListener
+
 @synthesize listening;
 @synthesize growlIsRunning;
+@synthesize onAppRegistered;
+
 - (id)init {
     if (self = [super init]) {
         pathways = [[NSMutableArray alloc] init];
@@ -49,7 +54,12 @@
 }
 
 - (void)registerApplicationWithDictionary:(NSDictionary*)dictionary {
-    NSLog(@"Register Application %@", dictionary);
+    RegisteredApp *app = [[RegisteredApp alloc] initWithGrowlDictionary:dictionary];
+    NSLog(@"Register Application %@", app);
+    if (onAppRegistered) {
+        onAppRegistered(app);
+    }
+    [app release];
 }
 
 - (BOOL)sendHelperNotification:(NSString*)applicationName title:(NSString*)title description:(NSString*)description {

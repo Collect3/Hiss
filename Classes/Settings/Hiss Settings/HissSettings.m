@@ -8,13 +8,17 @@
 
 #import "HissSettings.h"
 
+#import "HissSettingsRegisteredApps.h"
+
 @implementation HissSettings
+
 + (HissSettings *)sharedInstance {
     return (HissSettings*)[super sharedInstance];
 }
 
 - (void)registerSettingsClasses {
-    classNames = [[NSMutableArray alloc] initWithObjects: @"HissSettingsAppState", nil];
+    classNames = [[NSMutableArray alloc] initWithObjects: @"HissSettingsAppState",
+                  @"HissSettingsRegisteredApps", nil];
 }
 
 - (HissSettingsAppState*)appState {
@@ -23,5 +27,9 @@
     return [self.classes objectForKey: c];
 }
 
+- (NSSet *)registeredApps {
+    static NSString *c = @"HissSettingsRegisteredApps";
+    return [self.classes objectForKey:c];
+}
 
 @end

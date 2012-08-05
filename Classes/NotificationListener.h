@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "GrowlPathway.h"
+
+@class RegisteredApp;
+
 @interface NotificationListener : NSObject {
     NSMutableArray *pathways;
     BOOL listening;
@@ -15,5 +18,7 @@
 }
 @property (nonatomic, assign) BOOL listening;
 @property (nonatomic, assign) BOOL growlIsRunning;
+@property (nonatomic, copy) void (^onAppRegistered)(RegisteredApp *);
+
 - (void)addPathway:(GrowlPathway*)pathway;
 @end
