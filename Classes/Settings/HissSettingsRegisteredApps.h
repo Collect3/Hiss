@@ -16,4 +16,7 @@
 
 - (void)registerApp:(RegisteredApp *)app;
 
+- (void)setApp:(RegisteredApp *)app enabled:(BOOL)enabled;
+- (BOOL)isEnabledApp:(RegisteredApp *)app;
+
 @end

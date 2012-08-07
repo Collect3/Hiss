@@ -179,12 +179,17 @@ NSString *kPreferenceViewControllerUpdatedMenuBarOption = @"kPreferenceViewContr
                   row:(NSInteger)row {
 
     NSView *view = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    RegisteredApp *app = [self registeredAppAtIndex:row];
 
     if ([tableColumn.identifier isEqualToString:KEY_ENABLED]) {
-        ((NSButton *)view).state = NSOffState;
+        BOOL enabled = [[HissSettings sharedInstance].registeredApps isEnabledApp:app];
+        NSButton *checkbox = (NSButton *)view;
+        checkbox.state = enabled ? NSOnState : NSOffState;
+        checkbox.action = @selector(appEnabledButtonPressed:);
+        checkbox.target = self;
+        checkbox.tag = row;
     } else {
         NSTextField *textField = ((NSTableCellView *)view).textField;
-        RegisteredApp *app = [self registeredAppAtIndex:row];
         textField.stringValue = [app valueForKey:tableColumn.identifier];
     }
 
@@ -195,5 +200,9 @@ NSString *kPreferenceViewControllerUpdatedMenuBarOption = @"kPreferenceViewContr
     return [[[HissSettings sharedInstance].registeredApps.apps allObjects] objectAtIndex:index];
 }
 
+- (void)appEnabledButtonPressed:(NSButton *)sender {
+    RegisteredApp *app = [self registeredAppAtIndex:sender.tag];
+    [[HissSettings sharedInstance].registeredApps setApp:app enabled:sender.state == NSOnState];
+}
 
 @end
