@@ -55,11 +55,15 @@
 
 - (void)registerApplicationWithDictionary:(NSDictionary*)dictionary {
     RegisteredApp *app = [[RegisteredApp alloc] initWithGrowlDictionary:dictionary];
+    [self registerApplication:app];
+    [app release];
+}
+
+- (void)registerApplication:(RegisteredApp *)app {
     NSLog(@"Register Application %@", app);
     if (onAppRegistered) {
         onAppRegistered(app);
     }
-    [app release];
 }
 
 - (BOOL)sendHelperNotification:(NSString*)applicationName title:(NSString*)title description:(NSString*)description {
@@ -85,6 +89,10 @@
 }
 
 - (void)dispatchNotificationWithDictionary:(NSDictionary*)dictionary {
+
+    RegisteredApp *app = [[[RegisteredApp alloc] initWithGrowlDictionary:dictionary] autorelease];
+    [self registerApplication:app];
+
     if (!listening) {
         NSLog(@"Not listening.");
         return;
