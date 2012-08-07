@@ -35,6 +35,9 @@ static HissEngine *sharedHissEngine = nil;
         listener.onAppRegistered = ^(RegisteredApp *app) {
             [settings.registeredApps registerApp:app];
         };
+        listener.shouldSendNotification = ^(NSUserNotification *note, RegisteredApp *app) {
+            return [settings.registeredApps isEnabledApp:app];
+        };
         
         if (settings.appState.engineRunning) {
             [self start];

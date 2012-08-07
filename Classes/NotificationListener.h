@@ -19,6 +19,7 @@
 @property (nonatomic, assign) BOOL listening;
 @property (nonatomic, assign) BOOL growlIsRunning;
 @property (nonatomic, copy) void (^onAppRegistered)(RegisteredApp *);
+@property (nonatomic, copy) BOOL (^shouldSendNotification)(NSUserNotification *, RegisteredApp *);
 
 - (void)addPathway:(GrowlPathway*)pathway;
 @end

@@ -114,8 +114,13 @@
         note.title = [NSString stringWithFormat: @"%@ - %@", applicationName, title];
         note.informativeText = description;
         //note.actionButtonTitle = @"ACTION OK";
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: note];        
-        [note release];        
+
+        if (_shouldSendNotification && !_shouldSendNotification(note, app)) {
+            NSLog(@"Ignored according to user setting.");
+        } else {
+            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: note];
+        }
+        [note release];
     //}
     
 }
