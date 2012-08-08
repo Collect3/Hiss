@@ -35,6 +35,7 @@
 
 - (id) initWithCoder:(NSCoder *)coder {
 	if (self = [super init]) {
+        [self setupDefaults];
         NSArray *props = [self savedProperties];
         for (NSString *propertyName in props) {
             id obj = [coder decodeObjectForKey: propertyName];

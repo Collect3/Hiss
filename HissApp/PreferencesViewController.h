@@ -19,6 +19,9 @@ extern NSString *kPreferenceViewControllerUpdatedMenuBarOption;
     IBOutlet NSImageView *onImage;
     
     IBOutlet NSTextField *descriptionText;
+
+    // Apps Tab
+    IBOutlet NSTableView *registeredAppsTable;
     
     // About Tab
     IBOutlet NSTextField *aboutLineOne;    
