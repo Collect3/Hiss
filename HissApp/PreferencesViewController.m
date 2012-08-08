@@ -189,8 +189,9 @@ NSString *kPreferenceViewControllerUpdatedMenuBarOption = @"kPreferenceViewContr
         checkbox.target = self;
         checkbox.tag = row;
     } else {
-        NSTextField *textField = ((NSTableCellView *)view).textField;
-        textField.stringValue = [app valueForKey:tableColumn.identifier];
+        NSTableCellView *cellView = (NSTableCellView *)view;
+        cellView.textField.stringValue = [app valueForKey:tableColumn.identifier];
+        cellView.imageView.image = [[[NSImage alloc] initWithData:app.icon] autorelease];
     }
 
     return view;

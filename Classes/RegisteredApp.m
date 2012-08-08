@@ -4,12 +4,14 @@
 
 @synthesize appId;
 @synthesize name;
+@synthesize icon;
 
 - (id)initWithGrowlDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
         appId = [[dictionary objectForKey:@"ApplicationId"] copy];
         name = [[dictionary objectForKey:@"ApplicationName"] copy];
+        icon = [[dictionary objectForKey:@"ApplicationIcon"] copy];
     }
     return self;
 }
@@ -17,7 +19,7 @@
 #pragma mark - persistence
 
 - (NSArray*)savedProperties {
-    return @[@"appId", @"name"];
+    return @[@"appId", @"name", @"icon"];
 }
 
 #pragma mark - copy

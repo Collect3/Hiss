@@ -4,6 +4,7 @@
 
 @property (nonatomic, copy, readonly) NSString *appId;
 @property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSData *icon;
 
 - (id)initWithGrowlDictionary:(NSDictionary *)dictionary;
 

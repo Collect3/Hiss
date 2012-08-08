@@ -8,6 +8,8 @@
 
 #import "HissSettingsRegisteredApps.h"
 
+#import "RegisteredApp.h"
+
 @interface HissSettingsRegisteredApps()
 @property (nonatomic, strong, readonly) NSMutableSet *disabledApps;
 @end
@@ -35,14 +37,14 @@
 
 - (void)setApp:(RegisteredApp *)app enabled:(BOOL)enabled {
     if (enabled) {
-        [disabledApps removeObject:app];
+        [disabledApps removeObject:app.name];
     } else {
-        [disabledApps addObject:app];
+        [disabledApps addObject:app.name];
     }
 }
 
 - (BOOL)isEnabledApp:(RegisteredApp *)app {
-    return ![disabledApps containsObject:app];
+    return ![disabledApps containsObject:app.name];
 }
 
 @end
