@@ -8,8 +8,19 @@
 
 #import "HissEngine.h"
 #import "HissSettings.h"
+#import "RegisteredApp.h"
+#import "HissSettingsRegisteredApps.h"
+
+@interface HissEngine()
+
+@property (nonatomic, strong) NSSet *registeredApps;
+
+@end
+
+#pragma mark -
 
 @implementation HissEngine
+
 @synthesize isRunning;
 
 // Stores the singleton instance (see below).
@@ -18,9 +29,17 @@ static HissEngine *sharedHissEngine = nil;
 - (id)init {
     if (self = [super init]){
         isRunning = NO;
+
+        HissSettings *settings = [HissSettings sharedInstance];
         listener = [[NotificationListener alloc] init];
+        listener.onAppRegistered = ^(RegisteredApp *app) {
+            [settings.registeredApps registerApp:app];
+        };
+        listener.shouldSendNotification = ^(NSUserNotification *note, RegisteredApp *app) {
+            return [settings.registeredApps isEnabledApp:app];
+        };
         
-        if ([HissSettings sharedInstance].appState.engineRunning) {
+        if (settings.appState.engineRunning) {
             [self start];
         }        
     }

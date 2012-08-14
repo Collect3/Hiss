@@ -9,13 +9,18 @@
 #import "NotificationListener.h"
 #import "GrowlApplicationBridgePathway.h"
 #import "GrowlPropertyListFilePathway.h"
+#import "RegisteredApp.h"
+
 @interface NotificationListener() 
 - (void)installPathways;
 @end
 
 @implementation NotificationListener
+
 @synthesize listening;
 @synthesize growlIsRunning;
+@synthesize onAppRegistered;
+
 - (id)init {
     if (self = [super init]) {
         pathways = [[NSMutableArray alloc] init];
@@ -49,7 +54,16 @@
 }
 
 - (void)registerApplicationWithDictionary:(NSDictionary*)dictionary {
-    NSLog(@"Register Application %@", dictionary);
+    RegisteredApp *app = [[RegisteredApp alloc] initWithGrowlDictionary:dictionary];
+    [self registerApplication:app];
+    [app release];
+}
+
+- (void)registerApplication:(RegisteredApp *)app {
+    NSLog(@"Register Application %@", app);
+    if (onAppRegistered) {
+        onAppRegistered(app);
+    }
 }
 
 - (BOOL)sendHelperNotification:(NSString*)applicationName title:(NSString*)title description:(NSString*)description {
@@ -75,6 +89,10 @@
 }
 
 - (void)dispatchNotificationWithDictionary:(NSDictionary*)dictionary {
+
+    RegisteredApp *app = [[[RegisteredApp alloc] initWithGrowlDictionary:dictionary] autorelease];
+    [self registerApplication:app];
+
     if (!listening) {
         NSLog(@"Not listening.");
         return;
@@ -96,8 +114,13 @@
         note.title = [NSString stringWithFormat: @"%@ - %@", applicationName, title];
         note.informativeText = description;
         //note.actionButtonTitle = @"ACTION OK";
-        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: note];        
-        [note release];        
+
+        if (_shouldSendNotification && !_shouldSendNotification(note, app)) {
+            NSLog(@"Ignored according to user setting.");
+        } else {
+            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: note];
+        }
+        [note release];
     //}
     
 }

@@ -9,13 +9,18 @@
 #import "PreferencesViewController.h"
 #import "HissEngine.h"
 #import "HissSettings.h"
+#import "HissSettingsRegisteredApps.h"
+#import "RegisteredApp.h"
 #import "StartAtLogin.h"
 #include <QuartzCore/QuartzCore.h>
 #import "NSButton+Style.h"
 
+static NSString *const KEY_REGISTERED_APPS = @"apps";
+static NSString *const KEY_ENABLED = @"enabled";
+
 NSString *kPreferenceViewControllerUpdatedMenuBarOption = @"kPreferenceViewControllerUpdatedMenuBarOption";
 
-@interface PreferencesViewController()
+@interface PreferencesViewController()<NSTableViewDataSource, NSTableViewDelegate>
 - (void)updateGeneralUI;
 - (void)updateAboutUI;
 - (void)showOnImage:(BOOL)show animated:(BOOL)animated;
@@ -27,9 +32,20 @@ NSString *kPreferenceViewControllerUpdatedMenuBarOption = @"kPreferenceViewContr
     [super loadView];
         
     HissEngine *engine = [HissEngine sharedInstance];    
-    [self showOnImage: engine.isRunning animated: NO];    
+    [self showOnImage: engine.isRunning animated: NO];
     [self updateGeneralUI];  
     [self updateAboutUI];
+
+    [[HissSettings sharedInstance].registeredApps addObserver:self
+                                                   forKeyPath:KEY_REGISTERED_APPS
+                                                      options:0
+                                                      context:nil];
+}
+
+- (void)dealloc {
+    [[HissSettings sharedInstance].registeredApps removeObserver:self
+                                                      forKeyPath:KEY_REGISTERED_APPS];
+    [super dealloc];
 }
 
 #pragma mark -
@@ -139,5 +155,55 @@ NSString *kPreferenceViewControllerUpdatedMenuBarOption = @"kPreferenceViewContr
     [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString:@"http://twitter.com/collect3"]];        
 }
 
+#pragma mark -
+#pragma mark Apps Tab
+#pragma mark -
+
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary *)change
+                      context:(void *)context {
+
+    if (object == [HissSettings sharedInstance].registeredApps
+        && [keyPath isEqualToString:KEY_REGISTERED_APPS]) {
+        [registeredAppsTable reloadData];
+    }
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return [HissSettings sharedInstance].registeredApps.apps.count;
+}
+
+- (NSView *)tableView:(NSTableView *)tableView
+   viewForTableColumn:(NSTableColumn *)tableColumn
+                  row:(NSInteger)row {
+
+    NSView *view = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    RegisteredApp *app = [self registeredAppAtIndex:row];
+
+    if ([tableColumn.identifier isEqualToString:KEY_ENABLED]) {
+        BOOL enabled = [[HissSettings sharedInstance].registeredApps isEnabledApp:app];
+        NSButton *checkbox = (NSButton *)view;
+        checkbox.state = enabled ? NSOnState : NSOffState;
+        checkbox.action = @selector(appEnabledButtonPressed:);
+        checkbox.target = self;
+        checkbox.tag = row;
+    } else {
+        NSTableCellView *cellView = (NSTableCellView *)view;
+        cellView.textField.stringValue = [app valueForKey:tableColumn.identifier];
+        cellView.imageView.image = [[[NSImage alloc] initWithData:app.icon] autorelease];
+    }
+
+    return view;
+}
+
+- (RegisteredApp *)registeredAppAtIndex:(NSInteger)index {
+    return [[[HissSettings sharedInstance].registeredApps.apps allObjects] objectAtIndex:index];
+}
+
+- (void)appEnabledButtonPressed:(NSButton *)sender {
+    RegisteredApp *app = [self registeredAppAtIndex:sender.tag];
+    [[HissSettings sharedInstance].registeredApps setApp:app enabled:sender.state == NSOnState];
+}
 
 @end
