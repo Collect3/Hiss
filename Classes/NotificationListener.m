@@ -90,6 +90,8 @@
 
 - (void)dispatchNotificationWithDictionary:(NSDictionary*)dictionary {
 
+    int line = 0;
+    id item;
     RegisteredApp *app = [[[RegisteredApp alloc] initWithGrowlDictionary:dictionary] autorelease];
     [self registerApplication:app];
 
@@ -103,16 +105,33 @@
     
     NSString *applicationName = [dictionary objectForKey:@"ApplicationName"];
     //NSString *notificationName = [dictionary objectForKey:@"NotificationName"];    
-    NSString *description = [dictionary objectForKey:@"NotificationDescription"];
+    NSArray *description = [[dictionary objectForKey:@"NotificationDescription"] componentsSeparatedByString:@"\n"];
     //NSString *priority = [dictionary objectForKey:@"NotificationPriority"];
     NSString *title = [dictionary objectForKey:@"NotificationTitle"];
+    NSMutableString *informativeText = [[NSMutableString alloc] initWithString: @""];
     
     NSLog(@"%@ - %@ %@", applicationName, title, description);
-        
+
+    NSEnumerator *enumerator = [description objectEnumerator];
+
     //if (![self sendHelperNotification: applicationName title: title description: description]) {
         NSUserNotification *note =  [[NSUserNotification alloc] init];
-        note.title = [NSString stringWithFormat: @"%@ - %@", applicationName, title];
-        note.informativeText = description;
+        note.title = title;
+        while (item = [enumerator nextObject]) {
+            switch (line) {
+            case 0:
+                note.subtitle = [NSString stringWithFormat: @"%@ - %@", [description objectAtIndex:0], applicationName];
+                break;
+            case 1:
+                [informativeText appendString:item];
+                break;
+            default:
+                [informativeText appendFormat:@"\n%@", item];
+                break;
+            }
+            line++;
+        }
+        note.informativeText = informativeText;
         //note.actionButtonTitle = @"ACTION OK";
 
         if (_shouldSendNotification && !_shouldSendNotification(note, app)) {
@@ -121,6 +140,7 @@
             [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: note];
         }
         [note release];
+        [informativeText release];
     //}
     
 }
